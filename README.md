@@ -1,1 +1,2 @@
-# plugin.video.darostream
+# Darostream
+Yet another streaming plugin for Kodi.

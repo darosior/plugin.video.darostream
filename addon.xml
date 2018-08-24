@@ -3,7 +3,7 @@
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
-  <extension point="xbmc.python.pluginsource" library="main.py">
+  <extension point="xbmc.python.pluginsource" library="addon.py">
     <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
@@ -19,8 +19,8 @@
     <source>https://github.com/darosior/plugin.video.darostream</source>
     <news></news>
     <assets>
-        <icon>resources/icon.png</icon>
-        <fanart>resources/fanart.jpg</fanart>
+        <icon>icon.png</icon>
+        <fanart>fanart.jpg</fanart>
         <banner></banner>
         <clearlogo></clearlogo>
         <screenshot></screenshot>

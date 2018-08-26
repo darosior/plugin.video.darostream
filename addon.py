@@ -23,10 +23,12 @@ class Plugin:
             self.display_main_menu()
         else:
             q = self.parse_query()
-            if q['setDirectory'] == 'movies':
+            if q.get('setDirectory') == 'movies':
                 self.display_movies_menu()
-            elif q['setDirectory'] == 'football':
+            elif q.get('setDirectory') == 'football':
                 pass
+            elif q.get('action') == 'searchMovie':
+                self.search_movie(self.get_input())
 
     def display_main_menu(self):
         # Items to be displayed
@@ -59,12 +61,23 @@ class Plugin:
         })
         # (url, ListItem, IsDirectory?)
         items = [
-            ('', search, True),
+            (self.base_url+'?action=searchMovie', search, True),
         ]
         xbmcplugin.setContent(self.proc_id, 'movies')
         # Last param for progressbar
         xbmcplugin.addDirectoryItems(self.proc_id, items, len(items))
         xbmcplugin.endOfDirectory(self.proc_id)
+
+    def search_movie(self):
+        pass
+
+    def get_input(self):
+        kb = xbmc.Keyboard('', 'Entrez le nom du film')
+        kb.doModal()
+        if kb.isConfirmed():
+            return kb.getText()
+        else:
+            return ''
 
     def parse_query(self):
         queries = {}
